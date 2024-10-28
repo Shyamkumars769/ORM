@@ -1,3 +1,3 @@
-from django.contrib import admin
-from .models import BankLoan,BankAdmin 
-admin.site.register(BankLoan,BankAdmin)
+from django.contrib import admin 
+from .models import ClientInfo,ClientInfoAdmin
+admin.site.register(ClientInfo,ClientInfoAdmin)
