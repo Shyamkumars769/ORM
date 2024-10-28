@@ -6,7 +6,9 @@ To develop a Django application to store and retrieve data from a bank loan data
 
 ## ENTITY RELATIONSHIP DIAGRAM
 
-![alt text](<Screenshot (3).png>)
+![alt text](<Client paint.png>)
+
+
 
 ## DESIGN STEPS
 
@@ -26,28 +28,33 @@ Execute Django admin and create details for 10 books
 
 ```
 
-models.py
+models.py 
 
 from django.db import models
 from django.contrib import admin
-class BankLoan(models.Model):
-    Name = models.CharField(max_length=100)
-    Account_No = models.IntegerField(primary_key="Account_No")
+class ClientInfo(models.Model):
+    full_name = models.CharField(max_length=120)
+     = models.IntegerField(primary_key="account_id")
+    IFSC_code = models.CharField(max_length=100)
+    branch = models.CharField(max_length=100)
     Phone_Number = models.IntegerField()
-    Aadhar_No = models.IntegerField()
-    Loan_amount = models.FloatField()
-    Time_Period = models.IntegerField()
-     
-class BankAdmin(admin.ModelAdmin):
-    list_display = ('Name', 'Account_No', 'Phone_Number','Aadhar_No', 'Loan_amount', 'Time_Period',)
+    Loan_amount = models.IntegerField()
+    Interest = models.FloatField()
+    
+
+
+class ClientInfoAdmin(admin.ModelAdmin):
+    list_display=('full_name','account_no','IFSC_code','branch','Phone_Number','Loan_amount','Interest')
 
 
 admin.py
 
 
-from django.contrib import admin
-from .models import BankLoan,BankAdmin 
-admin.site.register(BankLoan,BankAdmin)
+from django.contrib import admin 
+from .models import ClientInfo,ClientInfoAdmin
+admin.site.register(ClientInfo,ClientInfoAdmin)
+
+
 
 ```
 
@@ -56,7 +63,7 @@ admin.site.register(BankLoan,BankAdmin)
 
 Include the screenshot of your admin page.
 
-![alt text](bankloan,django.png)
+![alt text](<Screenshot 2024-10-29 003745.png>)
 
 
 ## RESULT
